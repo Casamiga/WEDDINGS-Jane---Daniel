@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule | Jane & Daniel</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Libre+Baskerville&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/gold-theme.css">
+    
+    <style>
+        /* Дополнительные стили специально для карточек событий, 
+           которые можно потом перенести в основной файл gold-theme.css */
+        .event-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        .event-image {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 30px;
+            border-radius: 2px;
+        }
+        .event-details {
+            max-width: 600px;
+        }
+        .event-time {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .event-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .event-location {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .dress-code {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(163, 131, 65, 0.2);
+            padding-top: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="travel.html">Travel</a>
+            <a href="faq.html">FAQs</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Schedule</h1>
+        <p style="margin-bottom: 60px;">We can't wait to celebrate with you!</p>
+
+        <section class="event-card">
+            <img src="images/schedule/1.jpg" class="event-image" alt="Welcome Drinks Location">
+            <div class="event-details">
+                <span class="event-time">Friday, October 16, 2026 <br> 7:00 PM</span>
+                <h2 class="event-title">Welcome Drinks</h2>
+                <p class="event-location">Beach Club Maritim<br>Passeig Marítim, 15, Costa Brava</p>
+                <p>Join us for some light bites and cocktails to kick off the weekend!</p>
+                <span class="dress-code">Dress Code: Summer Chic</span>
+            </div>
+        </section>
+
+        <section class="event-card">
+            <img src="images/schedule/2.jpg" class="event-image" alt="Wedding Ceremony Location">
+            <div class="event-details">
+                <span class="event-time">Saturday, October 17, 2026 <br> 4:00 PM</span>
+                <h2 class="event-title">The Wedding</h2>
+                <p class="event-location">Villa Botanical Gardens<br>Cami de Santa Barbara, Spain</p>
+                <p>Ceremony followed by dinner and dancing until late.</p>
+                <span class="dress-code">Dress Code: Black Tie Optional</span>
+            </div>
+        </section>
+
+        <section class="event-card">
+            <img src="images/schedule/3.jpg" class="event-image" alt="Brunch Location">
+            <div class="event-details">
+                <span class="event-time">Sunday, October 18, 2026 <br> 11:00 AM</span>
+                <h2 class="event-title">Farewell Brunch</h2>
+                <p class="event-location">Garden Terrace at The Hotel</p>
+                <p>A casual drop-in brunch before everyone heads home.</p>
+                <span class="dress-code">Dress Code: Casual</span>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 40px; opacity: 0.6; font-size: 12px;">
+        &copy; 2026 Jane & Daniel
+    </footer>
+
+</body>
+</html>
