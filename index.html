@@ -20,17 +20,61 @@
     </header>
 
     <main>
-        <div class="carousel-container">
-            <div class="carousel-slide slide-1"></div>
-            <div class="carousel-slide slide-2"></div>
-            <div class="carousel-slide slide-3"></div>
-        </div>
+        <div class="carousel-container" id="carousel"></div>
 
         <section class="hero-content">
             <h1 class="hero-names">Jane & Daniel</h1>
             <div class="hero-info">October 17, 2026 • Costa Brava, Spain</div>
         </section>
+
+        <div class="footer-photo-container">
+            <img src="images/home/10.jpg" alt="Footer Photo" class="footer-photo" 
+                 onerror="this.style.display='none'"> </div>
     </main>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const maxImages = 9;
+        let imagesFound = [];
+        let currentIndex = 0;
+
+        // Функция проверки наличия картинок
+        async function checkImages() {
+            for (let i = 1; i <= maxImages; i++) {
+                const url = `images/home/${i}.jpg`;
+                try {
+                    const response = await fetch(url, { method: 'HEAD' });
+                    if (response.ok) {
+                        imagesFound.push(url);
+                        // Создаем элемент слайда
+                        const slide = document.createElement('div');
+                        slide.className = 'carousel-slide';
+                        slide.style.backgroundImage = `url('${url}')`;
+                        carousel.appendChild(slide);
+                    }
+                } catch (e) { /* Файл не найден, идем дальше */ }
+            }
+
+            if (imagesFound.length > 0) {
+                startCarousel();
+            }
+        }
+
+        function startCarousel() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            slides[0].classList.add('active');
+
+            if (slides.length > 1) {
+                setInterval(() => {
+                    slides[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    slides[currentIndex].classList.add('active');
+                }, 5000); // Смена каждые 5 секунд
+            }
+        }
+
+        checkImages();
+    </script>
 
 </body>
 </html>
