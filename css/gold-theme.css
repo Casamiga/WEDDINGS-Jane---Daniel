@@ -1,12 +1,12 @@
 /* =========================================
-   1. ПЕРЕМЕННЫЕ И ОСНОВА
+   1. ПЕРЕМЕННЫЕ И ОСНОВНЫЕ НАСТРОЙКИ (VARIABLES & BASE)
    ========================================= */
 :root {
-    --bg-color: #FEFCF0;
-    --gold: #A38341;
-    --text-dark: #333333;
-    --font-serif: 'Cinzel', serif; /* Для заголовков */
-    --font-body: 'Libre Baskerville', serif; /* Для текста */
+    --bg-color: #FEFCF0; /* Фирменный кремовый фон Zola */
+    --gold: #A38341; /* Золотистый цвет текста */
+    --text-dark: #333333; /* Темный цвет (если понадобится) */
+    --font-serif: 'Cinzel', serif; /* Элегантный шрифт для заголовков */
+    --font-body: 'Libre Baskerville', serif; /* Классический шрифт для основного текста */
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 }
 
 /* =========================================
-   2. ШАПКА (ТОЛЬКО ИМЕНА И НАВИГАЦИЯ)
+   2. ШАПКА САЙТА И НАВИГАЦИЯ (HEADER & NAVIGATION)
    ========================================= */
 header {
     position: sticky;
@@ -32,7 +32,7 @@ header {
 
 .header-names {
     font-family: var(--font-serif);
-    font-size: 20px;
+    font-size: 20px; /* Имена в шапке небольшие, как в оригинале */
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 15px;
@@ -52,10 +52,16 @@ header {
     font-size: 11px;
     letter-spacing: 1.5px;
     font-weight: bold;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
 }
 
 /* =========================================
-   3. КАРУСЕЛЬ (ГЛАВНАЯ)
+   3. КАРУСЕЛЬ НА ГЛАВНОЙ СТРАНИЦЕ (HERO CAROUSEL)
+   Здесь настроена плавная смена кадров, которой управляет скрипт из index.html
    ========================================= */
 .carousel-container {
     width: 100%;
@@ -64,32 +70,26 @@ header {
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    background-color: var(--bg-color); /* Заглушка, пока грузятся фото */
 }
 
 .carousel-slide {
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    animation: slideShow 12s infinite;
     background-size: cover;
     background-position: center;
+    opacity: 0; /* Изначально все слайды скрыты */
+    transition: opacity 1.5s ease-in-out; /* Эффект плавного появления/исчезновения */
 }
 
-.slide-1 { background-image: url('../images/home/1.jpg'); animation-delay: 0s; }
-.slide-2 { background-image: url('../images/home/2.jpg'); animation-delay: 4s; }
-.slide-3 { background-image: url('../images/home/3.jpg'); animation-delay: 8s; }
-
-@keyframes slideShow {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    33% { opacity: 1; }
-    43% { opacity: 0; }
-    100% { opacity: 0; }
+.carousel-slide.active {
+    opacity: 1; /* Класс, который скрипт добавляет активному слайду */
 }
 
 /* =========================================
-   4. ЦЕНТРАЛЬНЫЙ БЛОК (ИМЕНА, ДАТА, МЕСТО)
+   4. ЦЕНТРАЛЬНЫЙ БЛОК ГЛАВНОЙ СТРАНИЦЫ (HOME PAGE HERO CONTENT)
+   Имена, дата и место проведения под каруселью
    ========================================= */
 .hero-content {
     padding: 60px 20px;
@@ -97,10 +97,11 @@ header {
 
 .hero-names {
     font-family: var(--font-serif);
-    font-size: 64px; /* Крупный размер как в оригинале */
+    font-size: 64px; /* Очень крупные имена для главного акцента */
     letter-spacing: 6px;
     text-transform: uppercase;
     margin: 0 0 20px 0;
+    line-height: 1.2;
 }
 
 .hero-info {
@@ -112,7 +113,24 @@ header {
 }
 
 /* =========================================
-   5. КОНТЕНТ СТРАНИЦ (SCHEDULE, TRAVEL И Т.Д.)
+   5. НИЖНЕЕ ФОТО (ФУТЕР) НА ГЛАВНОЙ СТРАНИЦЕ (HOME PAGE FOOTER PHOTO)
+   ========================================= */
+.footer-photo-container {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-photo {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+/* =========================================
+   6. ОБЩИЕ КОНТЕЙНЕРЫ И ТИПОГРАФИКА (CONTAINERS & TYPOGRAPHY)
+   Отступы и заголовки для всех внутренних страниц (Schedule, Travel и т.д.)
    ========================================= */
 .container {
     max-width: 940px;
@@ -128,6 +146,9 @@ h1 {
     margin-bottom: 50px;
 }
 
+/* =========================================
+   7. КАРТОЧКИ КОНТЕНТА - РАСПИСАНИЕ, ПУТЕШЕСТВИЕ, ДОСУГ (CONTENT CARDS)
+   ========================================= */
 .item-card {
     text-align: left;
     margin-bottom: 80px;
@@ -156,7 +177,9 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* FAQ */
+/* =========================================
+   8. БЛОК ВОПРОСОВ И ОТВЕТОВ (FAQ SECTION)
+   ========================================= */
 .faq-item {
     text-align: left;
     margin-bottom: 45px;
@@ -168,4 +191,5 @@ h1 {
     letter-spacing: 1px;
     margin-bottom: 10px;
     display: block;
+    font-weight: bold;
 }
